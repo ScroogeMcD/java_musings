@@ -1,0 +1,12 @@
+I. Steps to obtain a heapdump and analyze it
+   1. find the process id of your java process using the 'jps' utility
+   >> jps
+
+   2. generate the heapdump using 'jmap' utility (for the pid obtained from jps)
+   >> jmap -dump:live,file=./my-heapdump01.bin <pid>
+
+   3. analyze the generated heapdump by using the 'jhat' utility
+   >> jhat -J-Xmx2g -port 7001 my-heapdump01.bin
+
+   The heap dump can now be accessed at localhost:7001/
+
